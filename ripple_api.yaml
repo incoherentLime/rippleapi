@@ -1,0 +1,13 @@
+- platform: rest
+  resource: !secret ripple_api_url
+  device_class: energy
+  state_class: total_increasing
+  unit_of_measurement: kWh
+  method: GET
+  name: Ripple Sensor
+  value_template: '{{ (value_json["generation_assets"][1].generation.total.generated | float) }}'
+  scan_interval: 300
+
+
+
+

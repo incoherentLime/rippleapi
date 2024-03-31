@@ -17,3 +17,42 @@
   name: Graig Fatha money
   value_template: '{{ (value_json["generation_assets"][1].generation.total.earned | float) }}'
   scan_interval: 300
+ - platform: rest
+  resource: !secret ripple_api_url
+  device_class: energy
+  state_class: total_increasing
+  unit_of_measurement: kWh
+  method: GET
+  name: Derrill kWH
+  value_template: '{{ (value_json["generation_assets"][0].generation.total.generated | float) }}'
+  scan_interval: 300
+
+- platform: rest
+  resource: !secret ripple_api_url
+  device_class: monetary
+  state_class: total
+  unit_of_measurement: £
+  method: GET
+  name: Derriil money
+  value_template: '{{ (value_json["generation_assets"][0].generation.total.earned | float) }}'
+  scan_interval: 300
+ - platform: rest
+  resource: !secret ripple_api_url
+  device_class: energy
+  state_class: total_increasing
+  unit_of_measurement: kWh
+  method: GET
+  name: Kirk Hill kWH
+  value_template: '{{ (value_json["generation_assets"][2].generation.total.generated | float) }}'
+  scan_interval: 300
+
+- platform: rest
+  resource: !secret ripple_api_url
+  device_class: monetary
+  state_class: total
+  unit_of_measurement: £
+  method: GET
+  name: Kirk Hill money
+  value_template: '{{ (value_json["generation_assets"][2].generation.total.earned | float) }}'
+  scan_interval: 300
+ 
